@@ -1,0 +1,14 @@
+{
+  "name": "cumulus-cumulus_license",
+  "version": "1.0.0",
+  "author": "Stanley Karunditu",
+  "summary": "installs a Cumulus Linux license",
+  "license": "GPLv2",
+  "source": "https://github.com/CumulusNetworks/cumulus-cumulus_license",
+  "project_page": "https://github.com/CumulusNetworks/cumulus-cumulus_license",
+  "issues_url": "https://github.com/CumulusNetworks/cumulus-cumulus_license",
+  "description": "Installs a Cumulus Linux license",
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 3.2.0 < 5.0.0"}
+  ]
+}
