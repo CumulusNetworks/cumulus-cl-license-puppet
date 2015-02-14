@@ -4,13 +4,13 @@ define cumulus_license::license(
   $force = False
 ) {
   case $::operatingsystem {
-    Debian : { $supported = true }
+    CumulusLinux : { $supported = true }
     default: { fail("The ${module_name} module is not supported by ${::operatingsystem} based systems") }
   }
 
-  unless license_exists() {
+  if file('/etc/cumulus/.license.txt', '/dev/null') == '' {
     exec { 'install_license':
-      command => "/usr/cumulus/bin/cl-license -i ${src}",
+      command => "cl-license -i ${src}",
       path    => '/usr/sbin:/usr/bin:/sbin:/bin:/usr/cumulus/bin'
     }
   }
