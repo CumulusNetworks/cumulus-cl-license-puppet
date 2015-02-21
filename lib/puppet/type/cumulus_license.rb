@@ -19,5 +19,4 @@ Puppet::Type.newtype(:cumulus_license) do
     defaultto :false
     newvalues(:true, :false)
   end
-
 end
