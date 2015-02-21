@@ -1,7 +1,13 @@
 Puppet::Type.newtype(:cumulus_license) do
   desc "Installs Cumulus Linux license"
 
-  # it cannot be destroyed when it exists and should not be
+  # some puppet voodoo. looked at the source code
+  # to see if there was a way to default the :ensure property
+  # to present..defining this does the trick.purpose..unknown?
+  def managed?
+    true
+  end
+
   ensurable
 
   newparam(:name) do
@@ -19,4 +25,5 @@ Puppet::Type.newtype(:cumulus_license) do
     defaultto :false
     newvalues(:true, :false)
   end
+
 end
