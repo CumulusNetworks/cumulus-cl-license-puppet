@@ -40,8 +40,8 @@ This module does not use any default parameters.
 The module currently supports one defined type, `cumulus_license::license`
 ```
 node default {
-  cumulus_license::license { 'license':
-    src => "http://10.1.1.1/license",
+  cumulus_license { 'license':
+    src => "http://10.1.1.1/license"
   }
 }
 
