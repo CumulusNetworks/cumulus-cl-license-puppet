@@ -6,7 +6,6 @@
 2. [Module Description](#module-description)
 3. [Setup](#setup)
     * [What cumulus_license affects](#what-cumulus_license  -affects)
-    * [Beginning with cumulus_license](#beginning-with-cumulus_license)
 4. [Usage](#usage)
 5. [Reference](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
@@ -30,10 +29,6 @@ For more details, visit [Cumulus Linux User Guide](http://docs.cumulusnetworks.c
 * When installing a new license, switchd must be restarted.
 > **NOTE**: restarting the `switchd` daemon is disruptive
 
-
-### Beginning with cumulus_license
-
-This module does not use any default parameters.
 
 ## Usage
 
