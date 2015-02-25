@@ -49,9 +49,6 @@ node default {
 
 ## Reference
 
-### Classes
-  * `cumulus_ports`: Main class. It is empty
-
 ### Custom Type
   * `cumulus_license`:  installs a Cumulus Linux license if one does not exist. The options provided by this defined type are:
     * `src`: this is the url to the license file location. It can be a local path like '/root/license' or a http or https url
