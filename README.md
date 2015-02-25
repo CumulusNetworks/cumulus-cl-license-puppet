@@ -5,8 +5,8 @@
 1. [Overview](#overview)
 2. [Module Description](#module-description)
 3. [Setup](#setup)
-    * [What cumulus_ports affects](#what-cumulus_ports  -affects)
-    * [Beginning with cumulus_ports](#beginning-with-cumulus_ports)
+    * [What cumulus_license affects](#what-cumulus_license  -affects)
+    * [Beginning with cumulus_license](#beginning-with-cumulus_license)
 4. [Usage](#usage)
 5. [Reference](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
@@ -52,8 +52,8 @@ node default {
 ### Classes
   * `cumulus_ports`: Main class. It is empty
 
-### Defined Types
-  * `cumulus_license::license`:  installs a Cumulus Linux license if one does not exist. The options provided by this defined type are:
+### Custom Type
+  * `cumulus_license`:  installs a Cumulus Linux license if one does not exist. The options provided by this defined type are:
     * `src`: this is the url to the license file location. It can be a local path like '/root/license' or a http or https url
     * `force`: installs the license even though one exists on the switch.
 
