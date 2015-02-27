@@ -15,9 +15,26 @@ describe provider_class do
     @provider = provider_class.new(@resource)
   end
 
+  context 'operating system confine' do
+    subject do
+      provider_class.confine_collection.summary[:variable][:operatingsystem]
+    end
+    it { is_expected.to eq ['cumulus_linux'] }
+  end
+
   context 'license location' do
     subject { @provider.class.file_path }
     it { is_expected.to eq '/etc/cumulus/.license.txt' }
+  end
+
+  describe 'create' do
+    before do
+      allow(@provider).to receive(:cl_license).with(
+        ['-i', 'http://192.168.10.1/switch.lic']).once
+    end
+    it 'should run cl-license with the correct options' do
+      @provider.create
+    end
   end
 
   describe 'exists?' do
@@ -38,6 +55,7 @@ describe provider_class do
         it { is_expected.to be false }
       end
     end
+
     describe 'when resource[:force] is false' do
       describe 'and file exists' do
         before do
@@ -48,7 +66,8 @@ describe provider_class do
       end
       describe 'and file does not exist' do
         before do
-          allow(File).to receive(:exist?).with('/etc/cumulus/.license.txt').and_return(false)
+          allow(File).to receive(:exist?).with(
+            '/etc/cumulus/.license.txt').and_return(false)
         end
         subject { @provider.exists? }
         it { is_expected.to be false }

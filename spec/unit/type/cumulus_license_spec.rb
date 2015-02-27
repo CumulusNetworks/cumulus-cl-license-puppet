@@ -7,7 +7,7 @@ describe cl_license do
   let :params do
     [
       :src,
-      :force,
+      :force
     ]
   end
 
@@ -26,5 +26,4 @@ describe cl_license do
       expect(cl_license.parameters).to be_include(param)
     end
   end
-
 end
