@@ -10,12 +10,16 @@ Puppet::Type.type(:cumulus_license).provide :ruby do
   # "Could not find a suitable provider for cumulus_license"
   # someone asked for a way to log why provider is not suitable
   # but unable to find progress on it. http://bit.ly/17Dhny6
-  confine :operatingsystem => [:debian, :cumulus_linux]
+  confine :operatingsystem => [:cumulus_linux]
+
+  def self.file_path
+    '/etc/cumulus/.license.txt'
+  end
 
   def exists?
     # if license is forced to be installed, install it.
     if resource[:force] == :false
-      return File.exist?('/etc/cumulus/.license.txt')
+      return File.exist?(self.class.file_path)
     else
       return false
     end
