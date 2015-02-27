@@ -60,7 +60,7 @@ behave in unpredictable ways.
 This module does not overwrite an expired license. Use the force keyword to
 install a renewed license. This feature will be added in a future release.
 
-`puppet resource cl_license` doesn't work. To be implemented in a later version
+`puppet resource cumulus_license` doesn't work. To be implemented in a later version
 ## Development
 
 1. Fork it.
