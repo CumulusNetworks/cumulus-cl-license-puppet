@@ -4,8 +4,8 @@
 
 1. [Overview](#overview)
 2. [Module Description](#module-description)
-3. [Setup](#setup)
-    * [What cumulus_license affects](#what-cumulus_license  -affects)
+3. [Setup - The basics of getting started with [cumulus_interface]](#setup)
+    * [What cumulus_license affects](#what-cumulus_license-affects)
 4. [Usage](#usage)
 5. [Reference](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
@@ -18,8 +18,7 @@ This module installs a Cumulus Linux license
 ## Module Description
 
 The cumulus_license module  is responsible for installing a Cumulus Linux license.
-For more details, visit [Cumulus Linux User Guide](http://docs.cumulusnetworks.com) and search for
-"License"
+For more details, visit [Cumulus Linux User Guide](http://docs.cumulusnetworks.com) and search for "License"
 
 ## Setup
 
@@ -48,7 +47,7 @@ node default {
 ## Reference
 
 ### Custom Type
-  * `cumulus_license`:  installs a Cumulus Linux license if one does not exist. The options provided by this defined type are:
+  This module installs a Cumulus Linux license if one does not exist. The options provided by this defined type are:
     * `src`: this is the url to the license file location. It can be a local path like '/root/license' or a http or https url
     * `force`: installs the license even though one exists on the switch.
 
@@ -56,14 +55,13 @@ node default {
 
 This module only works on Cumulus Linux.
 
-The module, currently, does not do any error
-checking. Ensure all config is thoroughly tested or the switch can
+The module, currently, does not do any error checking. Ensure all config is thoroughly tested or the switch can
 behave in unpredictable ways.
 
-This module does not overwrite an expired license. Use the force keyword to
-install a renewed license. This feature will be added in a future release.
+This module does not overwrite an expired license. Use the force keyword to install a renewed license. This feature will be added in a future release.
 
 `puppet resource cumulus_license` doesn't work. To be implemented in a later version
+
 ## Development
 
 1. Fork it.
@@ -77,14 +75,10 @@ install a renewed license. This feature will be added in a future release.
 
 ### Cumulus Linux
 
-Cumulus Linux is a software distribution that runs on top of industry standard
-networking hardware. It enables the latest Linux applications and automation
-tools on networking gear while delivering new levels of innovation and
-ﬂexibility to the data center.
+Cumulus Linux is a software distribution that runs on top of industry standard networking hardware. It enables the latest Linux applications and automation tools on networking gear while delivering new levels of innovation and ﬂexibility to the data center.
 
-For further details please see:
-[cumulusnetworks.com](http://www.cumulusnetworks.com)
+For further details please see: [cumulusnetworks.com](http://www.cumulusnetworks.com)
 
-## CONTRIBUTORS
+## Contributors
 
 - Stanley Karunditu [@skamithi](https://github.com/skamithi)
