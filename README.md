@@ -32,7 +32,10 @@ For more details, visit [Cumulus Linux User Guide](http://docs.cumulusnetworks.c
 
 ## Usage
 
-The module currently supports one defined type, `cumulus_license::license`
+The module current has 2 supported parameters both of which as discussed in the
+Reference section
+
+Below is an example of how to use the cumulus_license module
 ```
 node default {
   cumulus_license { 'license':
@@ -84,4 +87,4 @@ For further details please see:
 
 ## CONTRIBUTORS
 
-- Stanley Karunditu (@skamithik)
+- Stanley Karunditu [@skamithi](https://github.com/skamithi)
