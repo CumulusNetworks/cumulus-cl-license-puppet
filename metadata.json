@@ -1,14 +1,19 @@
 {
   "name": "cumulus-cumulus_license",
   "version": "1.0.0",
-  "author": "Stanley Karunditu",
+  "author": "Cumulus Networks",
   "summary": "installs a Cumulus Linux license",
   "license": "GPLv2",
-  "source": "https://github.com/CumulusNetworks/cumulus-cumulus_license",
-  "project_page": "https://github.com/CumulusNetworks/cumulus-cumulus_license",
-  "issues_url": "https://github.com/CumulusNetworks/cumulus-cumulus_license",
-  "description": "Installs a Cumulus Linux license",
+  "source": "https://github.com/CumulusNetworks/cumulus-cl-license-puppet",
+  "project_page": "https://github.com/CumulusNetworks/cumulus-cl-license-puppet",
+  "issues_url": "https://github.com/CumulusNetworks/cumulus-cl-license-puppet",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 3.2.0 < 5.0.0"}
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CumulusLinux",
+      "operatingsystemrelease": ["2.5.0", "2.5.1"]
+    }
   ]
 }
