@@ -4,7 +4,7 @@
 
 1. [Overview](#overview)
 2. [Module Description](#module-description)
-3. [Setup - The basics of getting started with [cumulus_interface]](#setup)
+3. [Setup](#setup)
     * [What cumulus_license affects](#what-cumulus_license-affects)
 4. [Usage](#usage)
 5. [Reference](#reference)
