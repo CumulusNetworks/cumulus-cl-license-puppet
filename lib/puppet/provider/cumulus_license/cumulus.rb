@@ -1,4 +1,4 @@
-Puppet::Type.type(:cumulus_license).provide :ruby do
+Puppet::Type.type(:cumulus_license).provide :cumulus do
   # If cl_license is missing or not configured as an exec
   # Puppet returns error:
   # "Could not find a suitable provider for cumulus_license"
