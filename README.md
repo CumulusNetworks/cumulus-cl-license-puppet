@@ -8,8 +8,8 @@
     * [What cumulus_license affects](#what-cumulus_license-affects)
 4. [Usage](#usage)
 5. [Reference](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+5. [Limitations](#limitations)
+6. [Development](#development)
 
 ## Overview
 
@@ -17,48 +17,50 @@ This module installs a Cumulus Linux license
 
 ## Module Description
 
-The cumulus_license module  is responsible for installing a Cumulus Linux license.
+Installs a Cumulus Linux license file on a Cumulus Linux switch.
+
+If a license is already installed  the module will not attempt to override the existing license. You can over-ride this behaviour with the `force` parameter.
+
 For more details, visit [Cumulus Linux User Guide](http://docs.cumulusnetworks.com) and search for "License"
 
 ## Setup
 
 ### What cumulus_license affects
 
-* This module uses the Cumulus Linux `cl-license` command to manage the license.
-* When installing a new license, switchd must be restarted.
-> **NOTE**: restarting the `switchd` daemon is disruptive
+This module uses the Cumulus Linux `cl-license` command to manage the license.
+
+When installing a new license, switchd must be restarted using ``service switchd restart``
+
+**NOTE**: 
+Restarting the `switchd` daemon is disruptive
 
 
 ## Usage
 
-The module current has 2 supported parameters both of which as discussed in the
-Reference section
+Install a license file if one is not already installed:
 
-Below is an example of how to use the cumulus_license module
 ```
 node default {
-  cumulus_license { 'license':
-    src => "http://10.1.1.1/license"
-  }
+   cumulus_license { 'example':
+	   src => 'http://example.com/cumulus.lic',
+	  notify => Service['switchd'] 
+	}
 }
-
 ```
 
 ## Reference
 
-### Custom Type
-  This module installs a Cumulus Linux license if one does not exist. The options provided by this defined type are:
-    * `src`: this is the url to the license file location. It can be a local path like '/root/license' or a http or https url
-    * `force`: installs the license even though one exists on the switch.
+**cl_license Parameters**
+ 
+   `src`: this is the url to the license file location. It can be a local path like `/root/new.lic` or a http or https URL
+   
+   `force`: installs the license even though one exists on the switch.
 
 ## Limitations
 
 This module only works on Cumulus Linux.
 
-The module, currently, does not do any error checking. Ensure all config is thoroughly tested or the switch can
-behave in unpredictable ways.
-
-This module does not overwrite an expired license. Use the force keyword to install a renewed license. This feature will be added in a future release.
+This module does not overwrite an expired license. Use the `force` keyword to perform a license renewal. Checking expiration will be available in a later release.
 
 `puppet resource cumulus_license` doesn't work. To be implemented in a later version
 
@@ -71,9 +73,9 @@ This module does not overwrite an expired license. Use the force keyword to inst
 5. Create new Pull Request.
 
 
-## Cumulus Linux
-
 ![Cumulus icon](http://cumulusnetworks.com/static/cumulus/img/logo_2014.png)
+
+## Cumulus Linux
 
 Cumulus Linux is a software distribution that runs on top of industry standard networking hardware. It enables the latest Linux applications and automation tools on networking gear while delivering new levels of innovation and ﬂexibility to the data center.
 
