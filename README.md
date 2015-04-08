@@ -13,15 +13,15 @@
 
 ## Overview
 
-This module installs a Cumulus Linux license
+This module installs a Cumulus Linux license.
 
 ## Module Description
 
 Installs a Cumulus Linux license file on a Cumulus Linux switch.
 
-If a license is already installed  the module will not attempt to override the existing license. You can over-ride this behaviour with the `force` parameter.
+If a license is already installed, the module will not attempt to overwrite the existing license. You can overwrite the license with the `force` parameter.
 
-For more details, visit [Cumulus Linux User Guide](http://docs.cumulusnetworks.com) and search for "License"
+For more details, read the [Cumulus Linux User Guide](http://docs.cumulusnetworks.com) and search for "License".
 
 ## Setup
 
@@ -29,10 +29,10 @@ For more details, visit [Cumulus Linux User Guide](http://docs.cumulusnetworks.c
 
 This module uses the Cumulus Linux `cl-license` command to manage the license.
 
-When installing a new license, switchd must be restarted using ``service switchd restart``
+When installing a new license, `switchd` must be restarted using ``service switchd restart``.
 
 **NOTE**: 
-Restarting the `switchd` daemon is disruptive
+Restarting the `switchd` daemon is disruptive.
 
 
 ## Usage
@@ -42,7 +42,7 @@ Install a license file if one is not already installed:
 ```
 node default {
    cumulus_license { 'example':
-	   src => 'http://example.com/cumulus.lic',
+	     src => 'http://example.com/cumulus.lic',
 	  notify => Service['switchd'] 
 	}
 }
@@ -52,17 +52,19 @@ node default {
 
 **cl_license Parameters**
  
-   `src`: this is the url to the license file location. It can be a local path like `/root/new.lic` or a http or https URL
+   `src`: This is the URL to the license file location. It can be a local path like `/root/new.lic` or a http or https URL.
    
-   `force`: installs the license even though one exists on the switch.
+   `force`: Installs the license even though one exists on the switch.
 
 ## Limitations
 
 This module only works on Cumulus Linux.
 
-This module does not overwrite an expired license. Use the `force` keyword to perform a license renewal. Checking expiration will be available in a later release.
+This module does not overwrite an expired license. Use the `force` keyword to perform a license renewal. 
 
-`puppet resource cumulus_license` doesn't work. To be implemented in a later version
+Checking when the license expires will be available in a later release.
+
+`puppet resource cumulus_license` doesn't work. This feature will be implemented in a later version.
 
 ## Development
 
@@ -79,4 +81,4 @@ This module does not overwrite an expired license. Use the `force` keyword to pe
 
 Cumulus Linux is a software distribution that runs on top of industry standard networking hardware. It enables the latest Linux applications and automation tools on networking gear while delivering new levels of innovation and ﬂexibility to the data center.
 
-For further details please see: [cumulusnetworks.com](http://www.cumulusnetworks.com)
+For further details, please see [cumulusnetworks.com](http://www.cumulusnetworks.com).
