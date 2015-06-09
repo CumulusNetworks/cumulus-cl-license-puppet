@@ -1,6 +1,6 @@
 {
   "name": "cumuluslinux-cumulus_license",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Cumulus Networks",
   "summary": "installs a Cumulus Linux license",
   "license": "GPLv2",
