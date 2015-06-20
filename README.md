@@ -19,9 +19,16 @@ This module installs a Cumulus Linux license.
 
 Installs a Cumulus Linux license file on a Cumulus Linux switch.
 
-If a license is already installed, the module will not attempt to overwrite the existing license. You can overwrite the license with the `force` parameter.
+If a license is already installed, the module will not attempt to overwrite the existing license. You can overwrite the license with the `force` parameter. Using the `force` parameter will remove the idempotent behaviour of the module, so use `force` mode with caution.
+
+When installing a license on a switch, use a non-EULA license. To confirm if you
+have a non-EULA license, run `cl-license -i <license path>` and check if it
+prompts you for a EULA.
+
 
 For more details, read the [Cumulus Linux User Guide](http://docs.cumulusnetworks.com) and search for "License".
+Also review the [Cumulus Linux Licensing Knowledge
+Base](https://support.cumulusnetworks.com/hc/en-us/sections/200507688)
 
 ## Setup
 
@@ -29,7 +36,7 @@ For more details, read the [Cumulus Linux User Guide](http://docs.cumulusnetwork
 
 This module uses the Cumulus Linux `cl-license` command to manage the license.
 
-When installing a new license, `switchd` must be restarted using ``service switchd restart``.
+To activate a license for the first time, the switchd service must be restarted.
 
 **NOTE**:
 Restarting the `switchd` daemon is disruptive.
