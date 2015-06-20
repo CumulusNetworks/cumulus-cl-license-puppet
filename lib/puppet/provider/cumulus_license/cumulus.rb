@@ -11,15 +11,14 @@ Puppet::Type.type(:cumulus_license).provide :cumulus do
   # but unable to find progress on it. http://bit.ly/17Dhny6
   confine operatingsystem: [:cumuluslinux]
 
-  def self.file_path
-    '/etc/cumulus/.license.txt'
-  end
-
   def exists?
     # if license is forced to be installed, install it.
-    if resource[:force] == :false
-      return File.exist?(self.class.file_path)
-    else
+    return false if resource[:force] == :true
+    begin
+      cl_license
+      return true
+    rescue Puppet::ExecutionFailure, RuntimeError => e
+      Puppet.debug("License check condition: #{e.inspect}")
       return false
     end
   end
