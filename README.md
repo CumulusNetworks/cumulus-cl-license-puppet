@@ -22,9 +22,11 @@ Installs a Cumulus Linux license file on a Cumulus Linux switch.
 If a license is already installed, the module will not attempt to overwrite the existing license. You can overwrite the license with the `force` parameter. Using the `force` parameter will remove the idempotent behaviour of the module, so use `force` mode with caution.
 
 When installing a license on a switch, use a non-EULA license. To confirm if you
-have a non-EULA license, run `cl-license -i <license path>` and check if it
-prompts you for a EULA.
+have a non-EULA license, run `cl-license -i <license path>` and confirm that it
+does not prompt you for a EULA.
 
+Version 1.0.x of the module will work with 2.5.2 and lower.
+Version 1.1.x and higher will work with 2.5.3 and higher
 
 For more details, read the [Cumulus Linux User Guide](http://docs.cumulusnetworks.com) and search for "License".
 Also review the [Cumulus Linux Licensing Knowledge
