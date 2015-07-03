@@ -22,11 +22,6 @@ describe provider_class do
     it { is_expected.to eq ['cumuluslinux'] }
   end
 
-  context 'license location' do
-    subject { @provider.class.file_path }
-    it { is_expected.to eq '/etc/cumulus/.license.txt' }
-  end
-
   describe 'create' do
     before do
       allow(@provider).to receive(:cl_license).with(
@@ -47,27 +42,23 @@ describe provider_class do
         )
         @provider2 = provider_class.new(@resource2)
       end
-      describe 'and file exists' do
-        before do
-          allow(File).to receive(:exist?).and_return(true)
-        end
-        subject { @provider2.exists? }
-        it { is_expected.to be false }
-      end
+      subject { @provider2.exists? }
+      it { is_expected.to be false }
     end
 
     describe 'when resource[:force] is false' do
-      describe 'and file exists' do
+      describe 'and license exists' do
         before do
-          allow(File).to receive(:exist?).and_return(true)
+          allow(@provider).to receive(:cl_license).and_return(
+            'License installed')
         end
         subject { @provider.exists? }
         it { is_expected.to be true }
       end
-      describe 'and file does not exist' do
+      describe 'and license does not exists' do
         before do
-          allow(File).to receive(:exist?).with(
-            '/etc/cumulus/.license.txt').and_return(false)
+          allow(@provider).to receive(:cl_license).and_raise(
+            'Puppet::ExecutionFailure')
         end
         subject { @provider.exists? }
         it { is_expected.to be false }
