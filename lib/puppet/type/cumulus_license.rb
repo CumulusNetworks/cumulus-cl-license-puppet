@@ -25,4 +25,12 @@ Puppet::Type.newtype(:cumulus_license) do
     defaultto :false
     newvalues(:true, :false)
   end
+
+  validate do
+    if self[:src].start_with?('puppet:')
+      errormsg = 'puppet:/// url is not support. use https://, http://' \
+        'or regular filesystem path syntax'
+      fail Puppet::Error, errormsg
+    end
+  end
 end
