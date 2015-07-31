@@ -13,3 +13,8 @@
 cumulus_license {'license':
   src => 'http://192.168.100.1/license.lic'
 }
+
+## using puppet file url syntax
+# cumulus_license {'license':
+#    src => 'puppet:///modules/base/${::hostname}.lic'
+# }
