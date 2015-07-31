@@ -26,4 +26,25 @@ describe cl_license do
       expect(cl_license.parameters).to be_include(param)
     end
   end
+
+  context 'validation' do
+    context 'src syntax' do
+      context 'using puppet:///' do
+        it do
+          expect do
+            cl_license.new(name: 'license',
+                           src: 'puppet:///testme')
+          end.to raise_error
+        end
+      end
+      context 'using http://' do
+        it do
+          expect do
+            cl_license.new(name: 'license',
+                           src: 'http://12345')
+          end.to_not raise_error
+        end
+      end
+    end
+  end
 end

@@ -62,7 +62,7 @@ node default {
 
 #### Parameters
 
-   `src`: This is the URL to the license file location. It can be a local path like `/root/new.lic` or a http or https URL.
+   `src`: This is the URL to the license file location. It can be a local path like `/root/new.lic` or a http or https URL. It does not support a `puppet:///` url.
 
    `force`: Installs the license even though one exists on the switch.
 ## Limitations
