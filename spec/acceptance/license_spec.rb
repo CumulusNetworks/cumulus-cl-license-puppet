@@ -12,7 +12,7 @@ describe 'license' do
 
         # Create a fake cl-license command
         file { '/usr/cumulus/bin/cl-license':
-          content => '#!/bin/sh\necho "Rocket Turtle!"\necho $@ > /etc/cumulus/.license.txt\n',
+          content => '#!/bin/sh\necho "Rocket Turtle!\nexpires=$(date +%s)\n$0 $@" > /etc/cumulus/.license.txt',
           mode => 0755,
         }
 
@@ -26,7 +26,30 @@ describe 'license' do
     end
 
     describe file('/etc/cumulus/.license.txt') do
-      it { should exist }
+      it { should be_file }
+      its(:content) { should match(/Rocket Turtle!/) }
+      its(:content) { should match(%r{/usr/cumulus/bin/cl-license}) }
+    end
+
+  end
+
+  context 'force installing a v1 license' do
+
+    it 'should work with no errors' do
+      pp = <<-EOS
+        cumulus_license{ 'test_v1_force':
+          src => '/tmp/test_v1.lic',
+          force => true,
+        }
+      EOS
+
+      apply_manifest(pp, :catch_failures => true)
+    end
+
+    describe file('/etc/cumulus/.license.txt') do
+      it { should be_file }
+      its(:content) { should match(/Rocket Turtle!/) }
+      its(:content) { should match(%r{/usr/cumulus/bin/cl-license -i /tmp/test.v1}) }
     end
 
   end
