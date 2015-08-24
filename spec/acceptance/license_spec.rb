@@ -11,7 +11,7 @@ describe 'license' do
         # Create a fake cl-license command
         file { '/usr/cumulus/bin/cl-license':
           content => '#!/bin/sh\necho "Rocket Turtle!\nexpires=$(date +%s)\n$0 $@" > /etc/cumulus/.license.txt',
-          mode    => 0755,
+          mode    => '0755',
         }
 
         cumulus_license{ 'test_v1':
