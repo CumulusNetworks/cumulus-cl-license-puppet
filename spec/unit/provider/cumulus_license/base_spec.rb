@@ -9,8 +9,8 @@ describe provider_class do
     @src_url = 'http://192.168.10.1/switch.lic'
     @title = 'license'
     @resource = provider_resource.new(
-      src: @src_url,
-      name: @title
+      :src => @src_url,
+      :name => @title
     )
     @provider = provider_class.new(@resource)
   end
@@ -36,9 +36,9 @@ describe provider_class do
     describe 'when resource[:force] is true' do
       before do
         @resource2 = provider_resource.new(
-          src: @src_url,
-          name: @title,
-          force: true
+          :src => @src_url,
+          :name => @title,
+          :force => true
         )
         @provider2 = provider_class.new(@resource2)
       end
